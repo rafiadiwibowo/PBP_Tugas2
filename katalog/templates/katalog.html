@@ -1,14 +1,32 @@
 {% extends 'base.html' %}
 
  {% block content %}
+ <style>
+  h1, h5, p {text-align: center;}
+  h1, h5, p , th{color: black;}
+  th {text-align: center;}
+  tr {background-color: rgba(0,0,0,0.5);}
+  div {text-align: center;}
+  table, th, td {
+    border: 1px solid rgb(14, 13, 13);
+  }
+  body {
+    margin: 0;
+    background-color: rgb(0, 204, 255);
+    height:100vh;
+    color:#fff;
+  }
+  </style>
 
+  <br>
   <h1>Lab 1 Assignment PBP/PBD</h1>
 
   <h5>Name: </h5>
-  <p>Fill me!</p>
+  <p>{{nama}}</p>
 
   <h5>Student ID: </h5>
-  <p>Fill me!</p>
+  <p>{{id}}</p>
+  <br>
 
   <table>
     <tr>
@@ -20,6 +38,16 @@
       <th>Item URL</th>
     </tr>
     {% comment %} Add the data below this line {% endcomment %}
+    {% for barang in list_barang %}
+    <tr>
+        <th>{{barang.item_name}}</th>
+        <th>{{barang.item_price}}</th>
+        <th>{{barang.item_stock}}</th>
+        <th>{{barang.description}}</th>
+        <th>{{barang.rating}}</th>
+        <th>{{barang.item_url}}</th>
+      </tr>
+  {% endfor %}
   </table>
 
  {% endblock content %}
