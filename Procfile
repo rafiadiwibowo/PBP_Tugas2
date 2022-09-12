@@ -1,2 +1,2 @@
 release: sh -c 'python manage.py migrate && python manage.py loaddata initial_catalog_data.json'
-web: gunicorn projectpbp2.wsgi --log-file -
+web:gunicorn projectpbp2:app
