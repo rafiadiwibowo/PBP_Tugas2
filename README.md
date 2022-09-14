@@ -1,3 +1,22 @@
+[Diagram](Screenshot 2022-09-14 114219.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Template Proyek Django PBP
 
 Pemrograman Berbasis Platform (CSGE602022) - diselenggarakan oleh Fakultas Ilmu Komputer Universitas Indonesia, Semester Ganjil 2022/2023
