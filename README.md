@@ -1,6 +1,4 @@
-[Diagram](Screenshot 2022-09-14 114219.png)
-
-
+![Diagram](Screenshot 2022-09-14 114219.png)<br>
 
 
 
