@@ -1,4 +1,7 @@
-# README
+# Tugas 2 PBP
+### Muhammad Rafi Adiwibowo
+### 210663855
+### PBP - A
 
 ## Link aplikasi Heroku
 https://project2pbp.herokuapp.com/katalog/
