@@ -1,0 +1,112 @@
+[
+    {
+        "model": "mywatchlist.Film",
+        "pk": 1,
+        "fields": {
+            "watched": true,
+            "title": "La La Land",
+            "rating": 10,
+            "release_date": "2016-12-9",
+            "review": "There is no doubt why it received so many awards, not to forget it won so many awards at Oscar."
+        }
+    },
+    {
+        "model": "mywatchlist.Film",
+        "pk": 2,
+        "fields": {
+            "watched": true,
+            "title": "The Greatest Showman",
+            "rating": 9,
+            "release_date": "2017-12-19", 
+            "review": "I really love This movie it is so good a very great movie The Greatest Showman is The Greatest Movie for me I really love it got a lot of great parts awesome very good actors"
+        }
+    },
+    {
+        "model": "mywatchlist.Film",
+        "pk": 3,
+        "fields": {
+            "watched": true,
+            "title": "Knives Out",
+            "rating": 9,
+            "release_date": "2019-11-27",
+            "review": "Great movie. I just loved it. Daniel Craig's character was just so good and the way Craig acted was on another level."
+        }
+    },
+    {
+        "model": "mywatchlist.Film",
+        "pk": 4,
+        "fields": {
+            "watched": true,
+            "title": "Baywatch",
+            "rating": 8,
+            "release_date": "2017-7-18",
+            "review": "This movie is fantastic! It is by far my favourite movie I’ve watched. The characters were hilarious and had such strong friendships with each other"
+        }
+    },
+    {
+        "model": "mywatchlist.Film",
+        "pk": 5,
+        "fields": {
+            "watched": true,
+            "title": "Game of Thrones",
+            "rating": 10,
+            "release_date": "2011-4-17",
+            "review" : "Game of Thrones is one of those shows if not the show that had me intrigued about what television as a medium could offer and challenge viewers expectations"
+        }
+    },
+    {
+        "model": "mywatchlist.Film",
+        "pk": 6,
+        "fields": {
+            "watched": true,
+            "title": "House of Dragon",
+            "rating": 10,
+            "release_date": "2022-8-21",
+            "review": "The first episode is perfect! The central theme of this series is SUCCESSION and the issue of male primogeniture - and this is beautifully set up with the opening scene showing the Great Council in 101 AC."
+        }
+    },
+    {
+        "model": "mywatchlist.Film",
+        "pk": 7,
+        "fields": {
+            "watched": true,
+            "title": "Creed",
+            "rating": 9,
+            "release_date": "2015-11-25", 
+            "review": "I liked this movie a lot. The acting was great. The plot was interesting and the continuation of the story of Rocky and Apollo even after Apollo died was so fun to watch."
+        }
+    },
+    {
+        "model": "mywatchlist.Film",
+        "pk": 8,
+        "fields": {
+            "watched": true,
+            "title": "Notting HIll",
+            "rating": 9,
+            "release_date": "1999-5-13",
+            "review": "Notting Hill was well-received by critics and became the highest-grossing British film of all time."
+        }
+    },
+    {
+        "model": "mywatchlist.Film",
+        "pk": 9,
+        "fields": {
+            "watched": true,
+            "title": "Star Wars: Revenge of the Sith",
+            "rating": 10,
+            "release_date": "2005-5-19",
+            "review": "Very amazing and outstanding. This may be one of my most favorite Star Wars movies in the Prequel Trilogy."
+        }
+    },
+    {
+        "model": "mywatchlist.Film",
+        "pk": 10,
+        "fields": {
+            "watched": true,
+            "title": "Top Gun",
+            "rating": 10,
+            "release_date": "2022-5-27",
+            "review" : "This movie was just incredible. It was one of the best movies I've ever seen in my life. It felt so good, like it was just absolutely perfect as it is, and nothing should be changed."
+        }
+    }
+]
