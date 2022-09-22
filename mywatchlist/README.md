@@ -127,3 +127,13 @@ class MyWatchListTest(TestCase):
 - Melakukan ```Add```, ```Commit```, dan ```push``` ke repository github dan akan dideploy kedalam heroku supaya bisa diakses oleh teman-teman dan semua orang.
 
 ## Postman
+
+https://project2pbp.herokuapp.com/mywatchlist/html/
+![HTML](messageImage_1663767446425.jpg)
+
+https://project2pbp.herokuapp.com/mywatchlist/json/
+![JSON](messageImage_1663767887015.jpg)
+
+https://project2pbp.herokuapp.com/mywatchlist/xml/
+![XML](messageImage_1663767506337.jpg)
+
