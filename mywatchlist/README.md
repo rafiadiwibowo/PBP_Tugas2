@@ -4,9 +4,9 @@
 ### PBP - A
 
 ## Link aplikasi Heroku
-https://project2pbp.herokuapp.com/mywatchlist/html/
-https://project2pbp.herokuapp.com/mywatchlist/json/
-https://project2pbp.herokuapp.com/mywatchlist/xml/
+- https://project2pbp.herokuapp.com/mywatchlist/html/
+- https://project2pbp.herokuapp.com/mywatchlist/json/
+- https://project2pbp.herokuapp.com/mywatchlist/xml/
 
 1. Perbedaan ```JSON```, ```XML```, dan ```HTML``` adalah yang pertama ```JSON``` didesain menjadi self-describing, sehingga JSON sangat mudah untuk dimengerti. JSON digunakan pada banyak aplikasi web maupun mobile, yaitu untuk menyimpan dan mengirimkan data. Sintaks JSON merupakan turunan dari Object JavaScript. Akan tetapi format JSON berbentuk text, sehingga kode untuk membaca dan membuat JSON banyak terdapat dibanyak bahasa pemrograman. Lalu, ```XML``` merupakan didesain menjadi self-descriptive, jadi dengan membaca XML tersebut kita bisa mengerti informasi apa yang ingin disampaikan dari data yang tertulis. XML digunakan pada banyak aplikasi web maupun mobile, yaitu untuk menyimpan dan mengirimkan data. XML hanyalah informasi yang dibungkus di dalam tag. Kita perlu menulis program untuk mengirim, menerima, menyimpan, atau menampilkan informasi tersebut. Dan yang terakhir ```HTML``` Secara umum, fungsi HTML adalah untuk mengelola serangkaian data dan informasi sehingga suatu dokumen dapat diakses dan ditampilkan di Internet melalui layanan web.
 
