@@ -49,6 +49,13 @@ def login_user(request):
     return render(request, 'login.html', context)
 
 @login_required(login_url='/todolist/login/')
+def logout_user(request):
+        logout(request)
+        response = HttpResponseRedirect(reverse('todolist:login'))
+        response.delete_cookie('last_login')
+        return response
+
+@login_required(login_url='/todolist/login/')
 def create_task(request):
     if request.method == "POST":
         form = FormTask(request.POST)
@@ -63,10 +70,3 @@ def create_task(request):
 
     context = {'form':form}
     return render(request, 'create_task.html', context) 
-
-@login_required(login_url='/todolist/login/')
-def logout_user(request):
-        logout(request)
-        response = HttpResponseRedirect(reverse('todolist:login'))
-        response.delete_cookie('last_login')
-        return response
