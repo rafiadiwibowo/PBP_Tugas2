@@ -1,6 +1,3 @@
-from multiprocessing import context
-from turtle import title
-from urllib import response
 from django.shortcuts import render
 from todolist.models import Task
 from django.shortcuts import redirect
