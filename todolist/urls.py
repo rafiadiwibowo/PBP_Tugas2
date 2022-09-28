@@ -9,5 +9,5 @@ urlpatterns = [
     path('login/', login_user, name='login'),
     path('create-task/', create_task, name='create-task'),
     path('logout/', logout_user, name='logout'),
-    path('todolist', show_todolist, name=show_todolist),
+    path('todolist/', show_todolist, name=show_todolist),
 ]
