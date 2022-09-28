@@ -39,9 +39,9 @@
       </tr>
   {% endfor %}
   </table>
-  <h5>Sesi terakhir login: {{last_login}}</h5>
-  <button> <a href="{% url 'todolist:create-task' %}">Tambah Task Baru</a> </button>
-  <button><a href="{% url 'todolist:logout' %}">Logout</a></button>
+    <h5>Sesi terakhir login: {{last_login}}</h5>
+    <button> <a href="{% url 'todolist:create_task' %}">Tambah Task Baru</a> </button>
+    <button><a href="{% url 'todolist:logout' %}">Logout</a></button>
   
 
 

@@ -53,22 +53,23 @@ def login_user(request):
 
 @login_required(login_url='/todolist/login/')
 def logout_user(request):
-    logout(request)
-    response = HttpResponseRedirect(reverse('todolist:login'))
-    response.delete_cookie('last_login')
-    return response
+        logout(request)
+        response = HttpResponseRedirect(reverse('todolist:login'))
+        response.delete_cookie('last_login')
+        return response
 
 @login_required(login_url='/todolist/login/')
 def create_task(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         form = FormTask(request.POST)
         form.instance.user = request.user
         form.instance.date = datetime.datetime.now()
         if form.is_valid():
             form.save()
-            response = HttpResponseRedirect(reverse('todolist:show_todolist'))
+            response = HttpResponseRedirect(reverse("todolist:show_todolist"))
             return response
     else:
         form = FormTask()
+
     context = {'form':form}
-    return render(request, 'create_task.html', context)   
+    return render(request, 'createtask.html', context) 
