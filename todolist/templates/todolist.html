@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+ {% block content %}
+ <style>
+  h1, h5, p , h2, h3{text-align: center;}
+  h1, h5, p , th, h2, h3{color: black;}
+  th {text-align: center;}
+  tr, button {background-color: rgba(0,0,0,0.5);}
+  div {text-align: center;}
+  table, th, td , button{
+    border: 1px solid rgb(14, 13, 13);
+  }
+  body {
+    display: grid;
+    margin: 0;
+    background-color: rgb(202, 202, 143);
+    height:100vh;
+    color:#fff;
+  }
+  </style>
+
+<br>
+  <h1>To Do List</h1>
+  <h3>{{user}}</h3>
+  <table>
+    <tr>
+      <th>User</th>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Description</th>
+    </tr>
+    {% comment %} Add the data below this line {% endcomment %}
+    {% for todo in list_todolist %}
+    <tr>
+        <th>{{todo.user}}</th>
+        <th>{{todo.date}}</th>
+        <th>{{todo.title}}</th>
+        <th>{{todo.description}}</th>
+      </tr>
+  {% endfor %}
+  </table>
+  <h5>Sesi terakhir login: {{last_login}}</h5>
+  <button> <a href="{% url 'todolist:create-task' %}">Tambah Task Baru</a> </button>
+  <button><a href="{% url 'todolist:logout' %}">Logout</a></button>
+  
+
+
+{% endblock content %}

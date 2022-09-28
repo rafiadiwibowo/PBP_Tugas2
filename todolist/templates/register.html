@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+<title>Registrasi Akun</title>
+{% endblock meta %}
+
+{% block content %}
+<style>
+    h1, h5, p , h2, h3{text-align: center;}
+    h1, h5, p , th, h2, h3{color: black;}
+    th {text-align: center;}
+    tr, button {background-color: rgba(0,0,0,0.5);}
+    div {text-align: center;}
+    table, td , button{
+        border: 1px solid rgb(14, 13, 13);
+    }
+    body {
+        display: grid;
+        margin: 0;
+        background-color: rgb(202, 202, 143);
+        height:100vh;
+        color:#fff;
+    }
+    .register {
+        margin-left: auto;
+        margin-right: auto;
+}
+</style> 
+
+<div class = "register">
+    
+    <h1>Formulir Registrasi</h1>  
+
+        <form method="POST" >  
+            {% csrf_token %}  
+            <table>  
+                {{ form.as_table }}  
+                <tr>  
+                    <td></td>
+                    <td><input type="submit" name="submit" value="Daftar"/></td>  
+                </tr>  
+            </table>  
+        </form>
+
+    {% if messages %}  
+        <ul>   
+            {% for message in messages %}  
+                <li>{{ message }}</li>  
+                {% endfor %}  
+        </ul>   
+    {% endif %}
+
+</div>  
+
+{% endblock content %}

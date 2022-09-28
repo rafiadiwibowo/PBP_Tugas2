@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+<title>Create Task</title>
+{% endblock meta %}
+
+{% block content %}
+
+<style>
+    h1, h5, p , h2, h3{text-align: center;}
+    h1, h5, p , th, h2, h3{color: black;}
+    th {text-align: center;}
+    tr, button {background-color: rgba(0,0,0,0.5);}
+    div {text-align: center;}
+    table, td , button{
+        border: 1px solid rgb(14, 13, 13);
+    }
+    body {
+        display: grid;
+        margin: 0;
+        background-color: rgb(202, 202, 143);
+        height:100vh;
+        color:#fff;
+    }
+    .login {
+        margin-left: auto;
+        margin-right: auto;
+}
+    </style>
+
+<div class = "login">
+
+    <h1>Create Task</h1>
+
+        <form method="POST" >
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>Title: </td>
+                    <td>{{form.title}}</td>
+                </tr>
+
+                <tr>
+                    <td>Description: </td>
+                    <td>{{form.description}}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" name="submit" value="Submit"/></td>
+                </tr>
+            </table>
+        </form>
+
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+        </ul>
+    {% endif %}
+
+{% endblock content %}

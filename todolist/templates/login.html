@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+<title>Login</title>
+{% endblock meta %}
+
+{% block content %}
+<style>
+    h1, h5, p , h2, h4{text-align: center;}
+    h1, h5, p , th, h2, h4{color: black;}
+    th {text-align: center;}
+    tr, button {background-color: rgba(0,0,0,0.5);}
+    div {text-align: center;}
+    table, td , button{
+        border: 1px solid rgb(14, 13, 13);
+    }
+    body {
+        display: grid;
+        margin: 0;
+        background-color: rgb(202, 202, 143);
+        height:100vh;
+        color:#fff;
+    }
+    .login {
+        margin-left: auto;
+        margin-right: auto;
+}
+</style>
+
+<div class = "login">
+
+    <h1>Login</h1>
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>Username: </td>
+                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
+            </tr>
+                    
+            <tr>
+                <td>Password: </td>
+                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td><input class="btn login_btn" type="submit" value="Login"></td>
+            </tr>
+        </table>
+    </form>
+
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}     
+        
+    <h4>Belum mempunyai akun? <a href="{% url 'todolist:register' %}">Buat Akun</a></h4>
+
+</div>
+
+{% endblock content %}
