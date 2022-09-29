@@ -28,6 +28,9 @@
       <th>Date</th>
       <th>Title</th>
       <th>Description</th>
+      <th>Status</th>
+      <th>Change Status</th>
+      <th>Remove Task</th>
     </tr>
     {% comment %} Add the data below this line {% endcomment %}
     {% for todo in list_todolist %}
@@ -36,6 +39,19 @@
         <th>{{todo.date}}</th>
         <th>{{todo.title}}</th>
         <th>{{todo.description}}</th>
+        {% if todo.is_finished == False %}
+        <th>Belum Selesai</th>
+        {% else %}
+        <th>Selesai</th>
+        {% endif %}
+        <form action="{% url 'todolist:status_task' id=todo.id %}" method="post">
+          {% csrf_token %}
+          <th><button class="btn btn-success" type="submit" ><i class="btn-success"></i>Status</button></th>
+        </form>
+        <form action="{% url 'todolist:delete' id=todo.id %}" method="post">
+          {% csrf_token %}
+          <th><button class="btn btn-danger" type="submit" ><i class="btn-danger"></i>Delete</button></th>
+       </form>
       </tr>
   {% endfor %}
   </table>
