@@ -25,3 +25,30 @@ https://project2pbp.herokuapp.com/todolist/
 
 
 # Tugas 4 PBP
+## Apa perbedaan dari Inline, Internal, dan External CSS? Apa saja kelebihan dan kekurangan dari masing-masing style?
+- Inline CSS adalah kode CSS yang ditulis langsung pada atribut elemen HTML. Setiap elemen HTML memiliki atribut style, di situ lah inline CSS ditulis. Cara ini kurang efisien karena setiap tag HTML yang diberikan harus memiliki style masing-masing. Anda akan lebih sulit dalam mengatur website jika hanya menggunakan inline style CSS. Sebab, Inline CSS digunakan hanya untuk mengubah satu elemen saja.
+- Internal CSS adalah kode CSS yang ditulis di dalam tag <style> dan kode HTML dituliskan di bagian atas (header) file HTML. Internal CSS dapat digunakan untuk membuat tampilan pada satu halaman website dan tidak digunakan pada halaman website yang lain. Cara ini akan sangat cocok dipakai untuk menciptakan halaman web dengan tampilan yang berbeda. Dengan kata lain, Internal CSS ini bisa dipakai untuk menciptakan tampilan yang unik, pada setiap halaman website.
+- Eksternal CSS adalah kode CSS yang ditulis terpisah dengan kode HTML Eksternal CSS ditulis di sebuah file khusus yang berekstensi .css. File eksternal CSS biasanya diletakkan setelah bagian <head> pada halaman. Cara ini lebih sederhana dan simpel daripada menambahkan kode CSS di setiap elemen HTML yang ingin Anda atur tampilannya. 
+
+##  Jelaskan tag HTML5 yang kamu ketahui.
+- ```<html>``` Tag untuk membuat sebuah dokumen HTML
+- ```<h1> to <h6>``` Tag untuk membuat heading
+- ```<p>``` Tag untuk membuat paragraf
+- ```<br>``` Memasukan satu baris putus
+- ```<hr>``` Tag untuk membuat perubahan dasar kata didalam isi
+- ```<table>``` Tag untuk membuat tabel
+- ```<style>``` Tag untuk membuat informasi style untuk dokumen
+- ```<div>``` Tag untuk membuat sebuah bagian dalam dokumen
+
+##  Jelaskan tipe-tipe CSS selector yang kamu ketahui.
+- ```*``` Simbol bintang (*) akan fokus pada semua elemen pada halaman.
+- ```:hover:``` Menerapkan styling yang aktif ketika cursor berada diatas elemen
+- ```:link:``` Menerapkan styling kepada semua link yang belum dibuka user
+
+## Proses pengimplementasian app
+1. Mencari template CSS dan HTML yang akan digunakan
+2. Mendefinisikan link src bootstrap ke dalam tag
+2. Melakukan penyesuaian antara data yang diberikan HTML dengan data Tugas 4 kemarin lalu dimasukkan kedalam HTML tersebut, dan membuat cards untuk masing-masing todolist yang diberikan
+3. Selanjutnya, mengubah style dari tampilan bootstrap dengan menambahkan Internal CSS ke dalam tag <style> 
+4. Melakukan desain CSS pada halaman login, register, dan create-task
+5. Lalu, melakukan ```git add .```, ```git commit```, dan juga ```git push``` yang akan langsung di deploy oleh github
