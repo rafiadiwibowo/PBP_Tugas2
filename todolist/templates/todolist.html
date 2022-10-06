@@ -1,64 +1,202 @@
 {% extends 'base.html' %}
 
  {% block content %}
- <style>
-  h1, h5, p , h2, h3{text-align: center;}
-  h1, h5, p , th, h2, h3{color: black;}
-  th {text-align: center;}
-  tr, button {background-color: rgba(0,0,0,0.5);}
-  div {text-align: center;}
-  table, th, td , button{
-    border: 1px solid rgb(14, 13, 13);
-  }
-  body {
-    display: grid;
-    margin: 0;
-    background-color: rgb(202, 202, 143);
-    height:100vh;
-    color:#fff;
-  }
-  </style>
 
-<br>
-  <h1>To Do List</h1>
-  <h3>{{user}}</h3>
-  <table>
-    <tr>
-      <th>User</th>
-      <th>Date</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Status</th>
-      <th>Change Status</th>
-      <th>Remove Task</th>
-    </tr>
-    {% comment %} Add the data below this line {% endcomment %}
-    {% for todo in list_todolist %}
-    <tr>
-        <th>{{todo.user}}</th>
-        <th>{{todo.date}}</th>
-        <th>{{todo.title}}</th>
-        <th>{{todo.description}}</th>
-        {% if todo.is_finished == False %}
-        <th>Belum Selesai</th>
-        {% else %}
-        <th>Selesai</th>
-        {% endif %}
-        <form action="{% url 'todolist:status_task' id=todo.id %}" method="post">
-          {% csrf_token %}
-          <th><button class="btn btn-success" type="submit" ><i class="btn-success"></i>Status</button></th>
-        </form>
-        <form action="{% url 'todolist:delete' id=todo.id %}" method="post">
-          {% csrf_token %}
-          <th><button class="btn btn-danger" type="submit" ><i class="btn-danger"></i>Delete</button></th>
-       </form>
-      </tr>
-  {% endfor %}
-  </table>
-    <h5>Sesi terakhir login: {{last_login}}</h5>
-    <button> <a href="{% url 'todolist:create_task' %}">Tambah Task Baru</a> </button>
-    <button><a href="{% url 'todolist:logout' %}">Logout</a></button>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js%22%3E"></script>
+
+<style>
   
+:root {
+  --blue: #ec0e8f;
+  --white : #fff;
+  --purple: #6f4faf;
+}
+
+h5 {
+  text-align: center;
+  color: white;
+}
+h3 {
+  font-weight: bold;
+}
 
 
-{% endblock content %}
+a:link {
+  color: var(--white);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: var(--white);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--white);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font: 16px / 24px "Rubik", sans-serif;
+  color: var(--white);
+  background-color: #111;
+  margin: 50px 0;
+}
+
+.container {
+  max-width: 1400px;
+  max-height: 1400px;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+
+h2 {
+    padding-top: 20px;
+    font-weight: bolder;
+    color: #fff;
+    text-align: center;
+  }
+
+h5.text-muted {
+  margin-left: 160px;
+  text-align: center;
+  color: #222;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.cards {
+  padding: 25px 0px;
+  list-style: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 100%;
+  padding: 20px;
+  background-color: #222;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.card:not(:last-child) {
+  margin-right: 10px;
+}
+
+.card:hover {
+  color: var(--white);
+  background: var(--purple);
+}
+
+.card .card-title {
+  font-size: 23px;
+}
+
+.card .card-content {
+  margin: 20px 0;
+  max-width: 85%;
+  max-height: 85%;
+}
+
+.card .card-link-wrapper {
+  margin-top: auto;
+}
+
+.card .card-link {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  background: var(--blue);
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.card:hover .card-link {
+  background: var(--purple);
+}
+
+@media (min-height: 500px) {
+  .card {
+    flex-basis: calc(50% - 10px);
+  }
+  .card:not(:last-child) {
+    margin-right: 20px;
+  }
+}
+
+@media (min-height: 700px) {
+  .card {
+    flex-basis: calc(calc(100% / 3) - 20px);
+  }
+  .card:not(:last-child) {
+    margin-right: 30px;
+  }
+}
+
+@media (min-height: 1100px) {
+  .card {
+    flex-basis: calc(25% - 30px);
+  }
+  .card:not(:last-child) {
+    margin-right: 40px;
+  }
+}
+</style>
+
+  <div class="container">
+    <h2>To Do List</h2>
+    <h5>{{user}} </h5>
+    <ul class="cards" >
+      {% for todo in list_todolist %}
+        <li class="card">
+          <div>
+            <h3 class="card-title">{{ todo.title }}</h3>
+            <h6 class="card-date">{{ todo.date }}</h6>
+            {% if todo.is_finished %}
+              <h6 style="font-weight: bold; color: green">DONE</h6>
+            {% else %}
+              <h6 style="font-weight: bold; color: red">NOT DONE</h6>
+            {% endif %}
+              <div class="card-content">
+              <p>{{ todo.description }}</p>
+            </div>
+          </div>
+          <div class="card-link-wrapper">
+            <form action="{% url 'todolist:status_task' id=todo.id %}" method="post">
+              {% csrf_token %}
+              <button style="float: left; margin-right: 4px;"class="btn btn-success" type="submit" ><i class="btn-success"></i>Status</button>
+            </form>
+            <form action="{% url 'todolist:delete' id=todo.id %}" method="post">
+              {% csrf_token %}
+              <button style="margin-left: 4px;" class="btn btn-danger" type="submit" ><i class="btn-danger"></i>Delete</button>
+           </form>
+
+        </li>
+      {% endfor %}
+      </ul>
+      
+  </div>
+
+  <br>
+ 
+  <div class="col-md-12 text-center">
+    <button type="button" class="btn btn-success"><a href="{% url 'todolist:create_task' %}">Create New Task</a></button>
+    <button type="button" class="btn btn-primary"><a href="{% url 'todolist:logout' %}">Logout</a></button>
+  </div>
+    
+  <br>
+  <br>
+  <h5 style="font-size: smaller;">Last login session: {{ last_login }}</h5>
+
+ {% endblock content %}
