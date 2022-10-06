@@ -22,3 +22,6 @@ https://project2pbp.herokuapp.com/todolist/
 4. Membuat file baru yaitu ```todolist/forms.py``` untuk menampilkan ```create_task.html``` yang digunakan untuk mensubmit data yang akan ditampilkan
 5. Membuat fungsi yang dibutuhkan pada ```todolist/views.py``` untuk login, logout, register, dan juga membuat task dan lain lain. Lalu fungsi-fungsi tersebut ditampilkan pada ```templates/todolist.html```
 6. Melakukan deploy project dengan cara ```git add .```, ```git commit```, dan juga ```git push``` yang akan langsung ke deploy oleh github
+
+
+# Tugas 4 PBP
