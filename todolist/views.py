@@ -72,10 +72,10 @@ def create_task(request):
     return render(request, 'create_task.html', context) 
 
 def logout_user(request):
-        logout(request)
-        response = HttpResponseRedirect(reverse('todolist:login'))
-        response.delete_cookie('last_login')
-        return response
+    logout(request)
+    response = HttpResponseRedirect(reverse('todolist:login'))
+    response.delete_cookie('last_login')
+    return response
 
 @login_required(login_url='/todolist/login/')
 def delete_task(request, id):
