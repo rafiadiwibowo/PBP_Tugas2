@@ -1,3 +1,5 @@
+from http.client import HTTPResponse
+import json
 from django.shortcuts import render
 from todolist.models import Task
 from django.shortcuts import redirect
@@ -9,6 +11,11 @@ import datetime
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from todolist.forms import FormTask
+from django.http import HttpResponse
+from django.core import serializers
+from django.shortcuts import get_object_or_404
+
+
 
 # Create your views here.
 @login_required(login_url='/todolist/login/')
@@ -64,7 +71,6 @@ def create_task(request):
     context = {'form':form}
     return render(request, 'create_task.html', context) 
 
-@login_required(login_url='/todolist/login/')
 def logout_user(request):
         logout(request)
         response = HttpResponseRedirect(reverse('todolist:login'))
@@ -86,3 +92,9 @@ def status_task(request, id):
         task.is_finished = True
     task.save()
     return show_todolist(request)
+
+@login_required(login_url='/todolist/login/')
+def show_todolist_json(request):
+    user = request.user
+    data_todolist = serializers.serialize("json", Task.objects.filter(user=user))
+    return HttpResponse(data_todolist, content_type="application/json")

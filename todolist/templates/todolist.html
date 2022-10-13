@@ -154,11 +154,90 @@ h5.text-muted {
 }
 </style>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+  $(document).ready(() => {
+    getTasks();
+  })
+  
+  function getTasks() {
+    console.log("in getTasks")
+    $.ajax({
+      type: "GET",
+      url: "/todolist/json",
+    }).done((data) => {
+      console.log("about to showTasks")
+      showTasks(data)
+    });
+  }
+
+  function showTasks(data) {
+    console.log("in showTasks");
+    const cards = $('.cards');
+    cards.empty();
+    data.forEach(task => {
+      const card = `
+        <li class="card">
+          <div>
+            <h3 class="card-title">${task.fields.title}</h3>
+            <h6 class="card-date">${task.fields.date}</h6>
+            <h6 style="font-weight: bold; color: green">
+              ${task.fields.is_finished ? "DONE" : "NOT DONE"}
+            </h6>
+            <div class="card-content">
+              <p>${task.fields.description}</p>
+            <div class="card-link-wrapper">
+              <button class="btn btn-success" type="submit" value="Status" onclick=statusTask(${task.pk})><i class="btn-success"></i>Status</button>
+              <button class="btn btn-danger" type="submit" value="Delete" onclick=deleteTask(${task.pk})><i class="btn-danger"></i>Delete</button>
+            </div>
+          </div>
+        </li>`;
+      cards.append(card);
+    })
+  }
+
+  function statusTask(id) {
+    $.ajax({
+      type: "GET",
+      url: "/todolist/status_task/" + id,
+      data: {csrfmiddlewaretoken: '{{ csrf_token }}', pk: id}
+    }).done((data) => {
+      getTasks();
+    })
+  }  
+
+  function deleteTask(id) {
+    $.ajax({
+      type: "GET",  
+      url: "/todolist/delete_task/" + id,
+      data: {csrfmiddlewaretoken: '{{ csrf_token }}', pk: id}
+    }).done((data) => {
+      getTasks();
+    })
+  }
+
+  function addTasks() {
+    const form = $('.newtask');
+    $.ajax({
+      type: "POST",
+      url: "/todolist/add/",
+      data: form.serialize(),
+    }).done(function (data) {
+      console.log("task?")
+      form.trigger("reset");
+      getTasks();
+    })
+    $("#staticBackdrop").modal("hide");
+  }
+
+</script>
+
   <div class="container">
     <h2>To Do List</h2>
     <h5>{{user}} </h5>
     <ul class="cards" >
-      {% for todo in list_todolist %}
+      <!-- {% for todo in list_todolist %}
         <li class="card">
           <div>
             <h3 class="card-title">{{ todo.title }}</h3>
@@ -183,7 +262,7 @@ h5.text-muted {
            </form>
 
         </li>
-      {% endfor %}
+      {% endfor %} -->
       </ul>
       
   </div>
